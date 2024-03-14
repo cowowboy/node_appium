@@ -1,9 +1,9 @@
 const {remote} = require('webdriverio');
 
 const capabilities = {
-  platformName: 'Android',
+  'appium:platformName': 'Android',
   'appium:automationName': 'UiAutomator2',
-  'appium:deviceName': 'Automation',
+  'appium:deviceName': 'ZDD69XBMEMCU6L7H',
   'appium:appPackage': 'com.android.settings',
   'appium:appActivity': '.Settings',
   'appium:platformVersion': '13',
@@ -18,6 +18,8 @@ const wdOpts = {
 
 async function runTest() {
   const driver = await remote(wdOpts);
+  let source = driver.getPageSource();
+  // console.log(source)
   try {
     const batteryItem = await driver.$('//*[@text="Battery"]');
     await batteryItem.click();

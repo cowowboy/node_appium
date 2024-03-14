@@ -1,0 +1,1 @@
+﻿Get-Process -Name "java" | Select-Object -ExpandProperty Id
